@@ -1,0 +1,729 @@
+{
+  "meta": {
+    "simulations": 100000,
+    "seed": 2026,
+    "model": "Elo + Poisson Monte Carlo, 2026 48-team format"
+  },
+  "teams": {
+    "Spain": {
+      "group": "H",
+      "rating": 2110,
+      "p_win_group": 0.8106,
+      "p_reach_r32": 0.9956,
+      "p_reach_r16": 0.7849,
+      "p_reach_qf": 0.6121,
+      "p_reach_sf": 0.4088,
+      "p_reach_final": 0.2933,
+      "p_champion": 0.1943,
+      "fair_odds": {
+        "decimal": 5.15,
+        "american": "+415"
+      }
+    },
+    "France": {
+      "group": "I",
+      "rating": 2090,
+      "p_win_group": 0.7624,
+      "p_reach_r32": 0.9869,
+      "p_reach_r16": 0.8368,
+      "p_reach_qf": 0.639,
+      "p_reach_sf": 0.4472,
+      "p_reach_final": 0.3195,
+      "p_champion": 0.1909,
+      "fair_odds": {
+        "decimal": 5.24,
+        "american": "+424"
+      }
+    },
+    "Argentina": {
+      "group": "J",
+      "rating": 2065,
+      "p_win_group": 0.7989,
+      "p_reach_r32": 0.9883,
+      "p_reach_r16": 0.6961,
+      "p_reach_qf": 0.5356,
+      "p_reach_sf": 0.4076,
+      "p_reach_final": 0.2249,
+      "p_champion": 0.133,
+      "fair_odds": {
+        "decimal": 7.52,
+        "american": "+652"
+      }
+    },
+    "England": {
+      "group": "L",
+      "rating": 2060,
+      "p_win_group": 0.7353,
+      "p_reach_r32": 0.9815,
+      "p_reach_r16": 0.7093,
+      "p_reach_qf": 0.4862,
+      "p_reach_sf": 0.277,
+      "p_reach_final": 0.1773,
+      "p_champion": 0.1034,
+      "fair_odds": {
+        "decimal": 9.67,
+        "american": "+867"
+      }
+    },
+    "Brazil": {
+      "group": "C",
+      "rating": 2025,
+      "p_win_group": 0.6817,
+      "p_reach_r32": 0.9846,
+      "p_reach_r16": 0.7825,
+      "p_reach_qf": 0.5243,
+      "p_reach_sf": 0.3587,
+      "p_reach_final": 0.2024,
+      "p_champion": 0.0985,
+      "fair_odds": {
+        "decimal": 10.15,
+        "american": "+915"
+      }
+    },
+    "Portugal": {
+      "group": "K",
+      "rating": 2005,
+      "p_win_group": 0.6029,
+      "p_reach_r32": 0.9694,
+      "p_reach_r16": 0.6549,
+      "p_reach_qf": 0.3743,
+      "p_reach_sf": 0.2021,
+      "p_reach_final": 0.1066,
+      "p_champion": 0.0539,
+      "fair_odds": {
+        "decimal": 18.55,
+        "american": "+1755"
+      }
+    },
+    "Germany": {
+      "group": "E",
+      "rating": 1965,
+      "p_win_group": 0.6053,
+      "p_reach_r32": 0.9676,
+      "p_reach_r16": 0.6889,
+      "p_reach_qf": 0.3488,
+      "p_reach_sf": 0.2259,
+      "p_reach_final": 0.0976,
+      "p_champion": 0.04,
+      "fair_odds": {
+        "decimal": 25.02,
+        "american": "+2402"
+      }
+    },
+    "Netherlands": {
+      "group": "F",
+      "rating": 1985,
+      "p_win_group": 0.5712,
+      "p_reach_r32": 0.9329,
+      "p_reach_r16": 0.5807,
+      "p_reach_qf": 0.3361,
+      "p_reach_sf": 0.1662,
+      "p_reach_final": 0.0925,
+      "p_champion": 0.0398,
+      "fair_odds": {
+        "decimal": 25.14,
+        "american": "+2414"
+      }
+    },
+    "Mexico": {
+      "group": "A",
+      "rating": 1855,
+      "p_win_group": 0.7361,
+      "p_reach_r32": 0.9737,
+      "p_reach_r16": 0.6204,
+      "p_reach_qf": 0.3737,
+      "p_reach_sf": 0.1631,
+      "p_reach_final": 0.0617,
+      "p_champion": 0.0198,
+      "fair_odds": {
+        "decimal": 50.56,
+        "american": "+4956"
+      }
+    },
+    "Belgium": {
+      "group": "G",
+      "rating": 1925,
+      "p_win_group": 0.5915,
+      "p_reach_r32": 0.9526,
+      "p_reach_r16": 0.6145,
+      "p_reach_qf": 0.2414,
+      "p_reach_sf": 0.1232,
+      "p_reach_final": 0.0521,
+      "p_champion": 0.0177,
+      "fair_odds": {
+        "decimal": 56.4,
+        "american": "+5540"
+      }
+    },
+    "Colombia": {
+      "group": "K",
+      "rating": 1930,
+      "p_win_group": 0.3317,
+      "p_reach_r32": 0.9114,
+      "p_reach_r16": 0.4604,
+      "p_reach_qf": 0.2301,
+      "p_reach_sf": 0.1121,
+      "p_reach_final": 0.0421,
+      "p_champion": 0.0163,
+      "fair_odds": {
+        "decimal": 61.24,
+        "american": "+6024"
+      }
+    },
+    "Uruguay": {
+      "group": "H",
+      "rating": 1915,
+      "p_win_group": 0.1666,
+      "p_reach_r32": 0.892,
+      "p_reach_r16": 0.444,
+      "p_reach_qf": 0.2419,
+      "p_reach_sf": 0.0942,
+      "p_reach_final": 0.042,
+      "p_champion": 0.014,
+      "fair_odds": {
+        "decimal": 71.43,
+        "american": "+7043"
+      }
+    },
+    "Morocco": {
+      "group": "C",
+      "rating": 1900,
+      "p_win_group": 0.2504,
+      "p_reach_r32": 0.8997,
+      "p_reach_r16": 0.5555,
+      "p_reach_qf": 0.2584,
+      "p_reach_sf": 0.1113,
+      "p_reach_final": 0.0413,
+      "p_champion": 0.0126,
+      "fair_odds": {
+        "decimal": 79.68,
+        "american": "+7868"
+      }
+    },
+    "United States": {
+      "group": "D",
+      "rating": 1815,
+      "p_win_group": 0.4417,
+      "p_reach_r32": 0.8611,
+      "p_reach_r16": 0.5279,
+      "p_reach_qf": 0.3011,
+      "p_reach_sf": 0.1187,
+      "p_reach_final": 0.0371,
+      "p_champion": 0.0119,
+      "fair_odds": {
+        "decimal": 83.89,
+        "american": "+8289"
+      }
+    },
+    "Norway": {
+      "group": "I",
+      "rating": 1890,
+      "p_win_group": 0.1422,
+      "p_reach_r32": 0.7898,
+      "p_reach_r16": 0.4162,
+      "p_reach_qf": 0.1628,
+      "p_reach_sf": 0.0627,
+      "p_reach_final": 0.024,
+      "p_champion": 0.0073,
+      "fair_odds": {
+        "decimal": 137.74,
+        "american": "+13674"
+      }
+    },
+    "Croatia": {
+      "group": "L",
+      "rating": 1900,
+      "p_win_group": 0.1973,
+      "p_reach_r32": 0.8349,
+      "p_reach_r16": 0.3198,
+      "p_reach_qf": 0.1517,
+      "p_reach_sf": 0.0527,
+      "p_reach_final": 0.0202,
+      "p_champion": 0.0066,
+      "fair_odds": {
+        "decimal": 150.6,
+        "american": "+14960"
+      }
+    },
+    "Ecuador": {
+      "group": "E",
+      "rating": 1865,
+      "p_win_group": 0.2668,
+      "p_reach_r32": 0.868,
+      "p_reach_r16": 0.4759,
+      "p_reach_qf": 0.1701,
+      "p_reach_sf": 0.0813,
+      "p_reach_final": 0.0226,
+      "p_champion": 0.0064,
+      "fair_odds": {
+        "decimal": 155.52,
+        "american": "+15452"
+      }
+    },
+    "Japan": {
+      "group": "F",
+      "rating": 1880,
+      "p_win_group": 0.2397,
+      "p_reach_r32": 0.7721,
+      "p_reach_r16": 0.3645,
+      "p_reach_qf": 0.1429,
+      "p_reach_sf": 0.0503,
+      "p_reach_final": 0.0186,
+      "p_champion": 0.0057,
+      "fair_odds": {
+        "decimal": 175.75,
+        "american": "+17475"
+      }
+    },
+    "Switzerland": {
+      "group": "B",
+      "rating": 1855,
+      "p_win_group": 0.36,
+      "p_reach_r32": 0.851,
+      "p_reach_r16": 0.4509,
+      "p_reach_qf": 0.2206,
+      "p_reach_sf": 0.0749,
+      "p_reach_final": 0.0197,
+      "p_champion": 0.0054,
+      "fair_odds": {
+        "decimal": 185.19,
+        "american": "+18419"
+      }
+    },
+    "Turkiye": {
+      "group": "D",
+      "rating": 1840,
+      "p_win_group": 0.2492,
+      "p_reach_r32": 0.728,
+      "p_reach_r16": 0.3719,
+      "p_reach_qf": 0.1754,
+      "p_reach_sf": 0.056,
+      "p_reach_final": 0.0139,
+      "p_champion": 0.0037,
+      "fair_odds": {
+        "decimal": 268.82,
+        "american": "+26782"
+      }
+    },
+    "Canada": {
+      "group": "B",
+      "rating": 1790,
+      "p_win_group": 0.443,
+      "p_reach_r32": 0.8904,
+      "p_reach_r16": 0.447,
+      "p_reach_qf": 0.2052,
+      "p_reach_sf": 0.0629,
+      "p_reach_final": 0.0143,
+      "p_champion": 0.0033,
+      "fair_odds": {
+        "decimal": 302.11,
+        "american": "+30111"
+      }
+    },
+    "Senegal": {
+      "group": "I",
+      "rating": 1845,
+      "p_win_group": 0.0843,
+      "p_reach_r32": 0.6751,
+      "p_reach_r16": 0.301,
+      "p_reach_qf": 0.1009,
+      "p_reach_sf": 0.0338,
+      "p_reach_final": 0.0108,
+      "p_champion": 0.0027,
+      "fair_odds": {
+        "decimal": 371.75,
+        "american": "+37075"
+      }
+    },
+    "Austria": {
+      "group": "J",
+      "rating": 1845,
+      "p_win_group": 0.1226,
+      "p_reach_r32": 0.7672,
+      "p_reach_r16": 0.2512,
+      "p_reach_qf": 0.1028,
+      "p_reach_sf": 0.0339,
+      "p_reach_final": 0.0089,
+      "p_champion": 0.0025,
+      "fair_odds": {
+        "decimal": 404.86,
+        "american": "+40386"
+      }
+    },
+    "Paraguay": {
+      "group": "D",
+      "rating": 1810,
+      "p_win_group": 0.1861,
+      "p_reach_r32": 0.6476,
+      "p_reach_r16": 0.2969,
+      "p_reach_qf": 0.1252,
+      "p_reach_sf": 0.0354,
+      "p_reach_final": 0.0074,
+      "p_champion": 0.0014,
+      "fair_odds": {
+        "decimal": 704.23,
+        "american": "+70323"
+      }
+    },
+    "Iran": {
+      "group": "G",
+      "rating": 1800,
+      "p_win_group": 0.2024,
+      "p_reach_r32": 0.78,
+      "p_reach_r16": 0.3214,
+      "p_reach_qf": 0.0809,
+      "p_reach_sf": 0.028,
+      "p_reach_final": 0.0065,
+      "p_champion": 0.0014,
+      "fair_odds": {
+        "decimal": 704.23,
+        "american": "+70323"
+      }
+    },
+    "Czechia": {
+      "group": "A",
+      "rating": 1790,
+      "p_win_group": 0.1079,
+      "p_reach_r32": 0.634,
+      "p_reach_r16": 0.2319,
+      "p_reach_qf": 0.0789,
+      "p_reach_sf": 0.0201,
+      "p_reach_final": 0.0048,
+      "p_champion": 0.001,
+      "fair_odds": {
+        "decimal": 1010.1,
+        "american": "+100910"
+      }
+    },
+    "Sweden": {
+      "group": "F",
+      "rating": 1815,
+      "p_win_group": 0.1242,
+      "p_reach_r32": 0.598,
+      "p_reach_r16": 0.2245,
+      "p_reach_qf": 0.0693,
+      "p_reach_sf": 0.0194,
+      "p_reach_final": 0.0051,
+      "p_champion": 0.001,
+      "fair_odds": {
+        "decimal": 970.87,
+        "american": "+96987"
+      }
+    },
+    "South Korea": {
+      "group": "A",
+      "rating": 1795,
+      "p_win_group": 0.1105,
+      "p_reach_r32": 0.6483,
+      "p_reach_r16": 0.2429,
+      "p_reach_qf": 0.0827,
+      "p_reach_sf": 0.0214,
+      "p_reach_final": 0.0052,
+      "p_champion": 0.0009,
+      "fair_odds": {
+        "decimal": 1149.43,
+        "american": "+114843"
+      }
+    },
+    "Egypt": {
+      "group": "G",
+      "rating": 1790,
+      "p_win_group": 0.1822,
+      "p_reach_r32": 0.7564,
+      "p_reach_r16": 0.3014,
+      "p_reach_qf": 0.0742,
+      "p_reach_sf": 0.0245,
+      "p_reach_final": 0.0049,
+      "p_champion": 0.0009,
+      "fair_odds": {
+        "decimal": 1098.9,
+        "american": "+109790"
+      }
+    },
+    "Ivory Coast": {
+      "group": "E",
+      "rating": 1780,
+      "p_win_group": 0.1133,
+      "p_reach_r32": 0.6809,
+      "p_reach_r16": 0.2624,
+      "p_reach_qf": 0.0686,
+      "p_reach_sf": 0.0218,
+      "p_reach_final": 0.004,
+      "p_champion": 0.0008,
+      "fair_odds": {
+        "decimal": 1265.82,
+        "american": "+126482"
+      }
+    },
+    "Algeria": {
+      "group": "J",
+      "rating": 1785,
+      "p_win_group": 0.0624,
+      "p_reach_r32": 0.6007,
+      "p_reach_r16": 0.1583,
+      "p_reach_qf": 0.0524,
+      "p_reach_sf": 0.0136,
+      "p_reach_final": 0.0029,
+      "p_champion": 0.0006,
+      "fair_odds": {
+        "decimal": 1639.34,
+        "american": "+163834"
+      }
+    },
+    "Australia": {
+      "group": "D",
+      "rating": 1770,
+      "p_win_group": 0.123,
+      "p_reach_r32": 0.5174,
+      "p_reach_r16": 0.2007,
+      "p_reach_qf": 0.0724,
+      "p_reach_sf": 0.0179,
+      "p_reach_final": 0.0033,
+      "p_champion": 0.0005,
+      "fair_odds": {
+        "decimal": 1886.79,
+        "american": "+188579"
+      }
+    },
+    "Bosnia and Herzegovina": {
+      "group": "B",
+      "rating": 1755,
+      "p_win_group": 0.1385,
+      "p_reach_r32": 0.6166,
+      "p_reach_r16": 0.2148,
+      "p_reach_qf": 0.0713,
+      "p_reach_sf": 0.0163,
+      "p_reach_final": 0.0027,
+      "p_champion": 0.0004,
+      "fair_odds": {
+        "decimal": 2777.78,
+        "american": "+277678"
+      }
+    },
+    "Scotland": {
+      "group": "C",
+      "rating": 1765,
+      "p_win_group": 0.0599,
+      "p_reach_r32": 0.5985,
+      "p_reach_r16": 0.2168,
+      "p_reach_qf": 0.0624,
+      "p_reach_sf": 0.015,
+      "p_reach_final": 0.0029,
+      "p_champion": 0.0004,
+      "fair_odds": {
+        "decimal": 2325.58,
+        "american": "+232458"
+      }
+    },
+    "Ghana": {
+      "group": "L",
+      "rating": 1745,
+      "p_win_group": 0.0334,
+      "p_reach_r32": 0.4033,
+      "p_reach_r16": 0.0876,
+      "p_reach_qf": 0.0246,
+      "p_reach_sf": 0.0049,
+      "p_reach_final": 0.001,
+      "p_champion": 0.0002,
+      "fair_odds": {
+        "decimal": 5263.16,
+        "american": "+526216"
+      }
+    },
+    "South Africa": {
+      "group": "A",
+      "rating": 1720,
+      "p_win_group": 0.0455,
+      "p_reach_r32": 0.4078,
+      "p_reach_r16": 0.1086,
+      "p_reach_qf": 0.0262,
+      "p_reach_sf": 0.0048,
+      "p_reach_final": 0.0008,
+      "p_champion": 0.0001,
+      "fair_odds": {
+        "decimal": 14285.71,
+        "american": "+1428471"
+      }
+    },
+    "Tunisia": {
+      "group": "F",
+      "rating": 1760,
+      "p_win_group": 0.0649,
+      "p_reach_r32": 0.419,
+      "p_reach_r16": 0.1246,
+      "p_reach_qf": 0.0309,
+      "p_reach_sf": 0.0065,
+      "p_reach_final": 0.0014,
+      "p_champion": 0.0001,
+      "fair_odds": {
+        "decimal": 8333.33,
+        "american": "+833233"
+      }
+    },
+    "Saudi Arabia": {
+      "group": "H",
+      "rating": 1700,
+      "p_win_group": 0.0115,
+      "p_reach_r32": 0.3135,
+      "p_reach_r16": 0.0648,
+      "p_reach_qf": 0.0158,
+      "p_reach_sf": 0.0027,
+      "p_reach_final": 0.0005,
+      "p_champion": 0.0001,
+      "fair_odds": {
+        "decimal": 20000.0,
+        "american": "+1999900"
+      }
+    },
+    "DR Congo": {
+      "group": "K",
+      "rating": 1730,
+      "p_win_group": 0.039,
+      "p_reach_r32": 0.4192,
+      "p_reach_r16": 0.0933,
+      "p_reach_qf": 0.0249,
+      "p_reach_sf": 0.0055,
+      "p_reach_final": 0.0008,
+      "p_champion": 0.0001,
+      "fair_odds": {
+        "decimal": 8333.33,
+        "american": "+833233"
+      }
+    },
+    "Panama": {
+      "group": "L",
+      "rating": 1745,
+      "p_win_group": 0.034,
+      "p_reach_r32": 0.4014,
+      "p_reach_r16": 0.0857,
+      "p_reach_qf": 0.0243,
+      "p_reach_sf": 0.0052,
+      "p_reach_final": 0.0011,
+      "p_champion": 0.0001,
+      "fair_odds": {
+        "decimal": 7692.31,
+        "american": "+769131"
+      }
+    },
+    "Qatar": {
+      "group": "B",
+      "rating": 1680,
+      "p_win_group": 0.0585,
+      "p_reach_r32": 0.3739,
+      "p_reach_r16": 0.091,
+      "p_reach_qf": 0.0207,
+      "p_reach_sf": 0.0029,
+      "p_reach_final": 0.0003,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": 33333.33,
+        "american": "+3333233"
+      }
+    },
+    "Haiti": {
+      "group": "C",
+      "rating": 1620,
+      "p_win_group": 0.008,
+      "p_reach_r32": 0.1653,
+      "p_reach_r16": 0.0288,
+      "p_reach_qf": 0.0041,
+      "p_reach_sf": 0.0004,
+      "p_reach_final": 0.0001,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": null,
+        "american": null
+      }
+    },
+    "Curacao": {
+      "group": "E",
+      "rating": 1620,
+      "p_win_group": 0.0145,
+      "p_reach_r32": 0.1908,
+      "p_reach_r16": 0.0327,
+      "p_reach_qf": 0.0035,
+      "p_reach_sf": 0.0004,
+      "p_reach_final": 0.0,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": null,
+        "american": null
+      }
+    },
+    "New Zealand": {
+      "group": "G",
+      "rating": 1620,
+      "p_win_group": 0.024,
+      "p_reach_r32": 0.2377,
+      "p_reach_r16": 0.0393,
+      "p_reach_qf": 0.0046,
+      "p_reach_sf": 0.0007,
+      "p_reach_final": 0.0,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": null,
+        "american": null
+      }
+    },
+    "Cape Verde": {
+      "group": "H",
+      "rating": 1700,
+      "p_win_group": 0.0113,
+      "p_reach_r32": 0.3158,
+      "p_reach_r16": 0.0651,
+      "p_reach_qf": 0.0154,
+      "p_reach_sf": 0.0026,
+      "p_reach_final": 0.0003,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": 25000.0,
+        "american": "+2499900"
+      }
+    },
+    "Iraq": {
+      "group": "I",
+      "rating": 1690,
+      "p_win_group": 0.011,
+      "p_reach_r32": 0.2041,
+      "p_reach_r16": 0.0454,
+      "p_reach_qf": 0.0077,
+      "p_reach_sf": 0.0012,
+      "p_reach_final": 0.0002,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": 33333.33,
+        "american": "+3333233"
+      }
+    },
+    "Jordan": {
+      "group": "J",
+      "rating": 1680,
+      "p_win_group": 0.0161,
+      "p_reach_r32": 0.27,
+      "p_reach_r16": 0.0422,
+      "p_reach_qf": 0.0089,
+      "p_reach_sf": 0.0012,
+      "p_reach_final": 0.0001,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": 100000.0,
+        "american": "+9999900"
+      }
+    },
+    "Uzbekistan": {
+      "group": "K",
+      "rating": 1700,
+      "p_win_group": 0.0265,
+      "p_reach_r32": 0.3258,
+      "p_reach_r16": 0.0637,
+      "p_reach_qf": 0.0149,
+      "p_reach_sf": 0.0031,
+      "p_reach_final": 0.0004,
+      "p_champion": 0.0,
+      "fair_odds": {
+        "decimal": 25000.0,
+        "american": "+2499900"
+      }
+    }
+  }
+}
