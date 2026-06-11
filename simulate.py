@@ -233,8 +233,8 @@ def main():
     ap = argparse.ArgumentParser(description="World Cup 2026 Monte Carlo simulator")
     ap.add_argument("-n", "--sims", type=int, default=20000)
     ap.add_argument("--seed", type=int, default=2026)
-    ap.add_argument("-d", "--data", default="data/teams.json")
-    ap.add_argument("-o", "--out", default="output/odds.json")
+    ap.add_argument("-d", "--data", default="teams.json")
+    ap.add_argument("-o", "--out", default="odds.json")
     args = ap.parse_args()
 
     data = load_data(Path(args.data))
