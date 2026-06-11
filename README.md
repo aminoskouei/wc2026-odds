@@ -5,7 +5,6 @@ Monte Carlo simulation + interactive dashboard for the 2026 FIFA World Cup
 **104 matches** — and championship odds from **100,000 simulated tournaments**,
 inspired by Nate Silver's [PELE model](https://www.natesilver.net/p/world-cup-2026-odds-predictions).
 
-![dashboard](docs/screenshot.png)
 
 ## Quick start
 
