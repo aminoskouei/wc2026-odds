@@ -5,7 +5,6 @@ Monte Carlo simulation + interactive dashboard for the 2026 FIFA World Cup
 **104 matches** — and championship odds from **100,000 simulated tournaments**,
 inspired by Nate Silver's [PELE model](https://www.natesilver.net/p/world-cup-2026-odds-predictions).
 
-
 ## Quick start
 
 ```bash
@@ -17,10 +16,10 @@ python simulate.py -n 100000
 # 2. Bake results into the dashboard
 python build_dashboard.py
 
-# 3. Open dashboard.html in a browser (or push to GitHub Pages)
+# 3. Open index.html in a browser (or push to GitHub Pages)
 ```
 
-`dashboard.html` is fully self-contained — no server, no build tools, no API
+`index.html` is fully self-contained — no server, no build tools, no API
 keys. Drop it on GitHub Pages and you're live.
 
 ## What's in the dashboard
@@ -36,7 +35,7 @@ keys. Drop it on GitHub Pages and you're live.
 ## How the model works
 
 1. **Ratings.** Every team carries an Elo-style rating
-   (`data/teams.json` — edit freely). Hosts get a home-advantage bonus:
+   (`teams.json` — edit freely). Hosts get a home-advantage bonus:
    Mexico's is largest (Azteca altitude), USA/Canada smaller, all reduced
    in the knockout rounds.
 2. **Matches.** The Elo gap drives expected goals; scorelines come from
@@ -59,7 +58,7 @@ is small but nonzero.
 ```bash
 python simulate.py -n 100000          # number of simulations
 python simulate.py --seed 7           # reproducible runs
-python simulate.py -o output/odds.json
+python simulate.py -o odds.json
 ```
 
 ## Updating the data — do you need API keys?
@@ -84,9 +83,9 @@ how PELE updates in-tournament.
 ├── simulate.py             # Monte Carlo engine (numpy only)
 ├── build_dashboard.py      # injects data + odds into the dashboard
 ├── dashboard_template.html # UI template
-├── dashboard.html          # generated, self-contained output
-├── data/teams.json         # 48 teams: groups, ratings, stars, notes
-└── output/odds.json        # generated simulation results
+├── index.html              # generated, self-contained dashboard
+├── teams.json              # 48 teams: groups, ratings, stars, notes
+└── odds.json               # generated simulation results
 ```
 
 ## Disclaimers

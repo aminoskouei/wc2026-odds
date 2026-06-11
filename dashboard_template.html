@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC26 ODDS BOARD — World Cup 2026 Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0E1626;        /* stadium dusk navy */
+  --night-2:#15203A;
+  --line:#27334F;
+  --chalk:#EDF1F8;        /* chalk white */
+  --muted:#8A97B0;
+  --pitch:#2EBE6B;        /* mexico pitch green */
+  --gold:#E8B84B;         /* trophy gold */
+  --red:#E84855;          /* US/Canada red */
+  --led:#9BE564;          /* LED board green */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--chalk);font-family:'Barlow',system-ui,sans-serif;font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.012) 3px 4px);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+/* ---------- header ---------- */
+header{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+h1{font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,6.5vw,76px);line-height:.95;text-transform:uppercase;letter-spacing:.01em;margin:8px 0 4px}
+h1 .tri{background:linear-gradient(90deg,var(--pitch) 0 33%,var(--chalk) 33% 66%,var(--red) 66% 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);max-width:720px}
+.sub b{color:var(--chalk)}
+.hoststrip{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap}
+.hoststrip span{font-family:'JetBrains Mono';font-size:12px;color:var(--muted)}
+.hoststrip b{color:var(--chalk)}
+
+/* ---------- tabs ---------- */
+nav{display:flex;gap:6px;margin:20px 0 26px;flex-wrap:wrap;position:sticky;top:0;background:linear-gradient(var(--night) 75%,transparent);padding:12px 0;z-index:5}
+nav button{font-family:'Barlow Condensed';font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.06em;
+  background:transparent;color:var(--muted);border:1px solid var(--line);padding:9px 18px;cursor:pointer;border-radius:4px;transition:.15s}
+nav button:hover{color:var(--chalk);border-color:var(--muted)}
+nav button.on{background:var(--gold);color:#1a1408;border-color:var(--gold)}
+nav button:focus-visible{outline:2px solid var(--led);outline-offset:2px}
+section{display:none;padding-bottom:70px}
+section.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+h2{font-family:'Barlow Condensed';font-weight:700;font-size:30px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.lede{color:var(--muted);margin-bottom:22px;max-width:760px}
+
+/* ---------- odds board (signature) ---------- */
+.board{border:1px solid var(--line);border-radius:8px;background:var(--night-2);padding:10px 0}
+.board-head,.row{display:grid;grid-template-columns:46px 1fr 84px 84px 96px 76px;gap:10px;align-items:center;padding:7px 18px}
+.board-head{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:10px}
+.row{border-bottom:1px solid rgba(39,51,79,.45);cursor:default}
+.row:last-child{border-bottom:none}
+.row:hover{background:rgba(232,184,75,.05)}
+.rk{font-family:'JetBrains Mono';font-size:12px;color:var(--muted)}
+.tm{display:flex;align-items:center;gap:10px;min-width:0}
+.tm .fl{font-size:20px;width:26px;text-align:center;flex:none}
+.tm .nm{font-family:'Barlow Condensed';font-weight:600;font-size:18px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm .gp{font-family:'JetBrains Mono';font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:1px 5px;flex:none}
+.barwrap{grid-column:1/-1;padding:0 18px 9px 74px;margin-top:-4px}
+.bar{height:9px;background:#1B2742;border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--led),var(--gold));box-shadow:0 0 10px rgba(155,229,100,.35);transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.num{font-family:'JetBrains Mono';font-size:13px;text-align:right}
+.num.win{color:var(--led);font-weight:700}
+.num.dim{color:var(--muted)}
+.odds-note{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);margin:14px 4px 0}
+
+/* ---------- groups ---------- */
+.toolbar{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.toolbar input,.toolbar select{background:var(--night-2);border:1px solid var(--line);color:var(--chalk);padding:9px 12px;border-radius:5px;font-family:'Barlow';font-size:14px}
+.toolbar input{flex:1;min-width:200px}
+.toolbar input:focus,.toolbar select:focus{outline:2px solid var(--gold);outline-offset:-1px}
+.groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.gcard{border:1px solid var(--line);border-radius:8px;background:var(--night-2);overflow:hidden}
+.gcard h3{font-family:'Barlow Condensed';font-weight:800;font-size:21px;letter-spacing:.05em;padding:11px 15px;display:flex;justify-content:space-between;align-items:baseline;background:linear-gradient(90deg,rgba(232,184,75,.13),transparent)}
+.gcard h3 small{font-family:'JetBrains Mono';font-weight:500;font-size:10px;color:var(--muted);letter-spacing:.1em}
+.trow{display:grid;grid-template-columns:30px 1fr 64px 56px;gap:8px;align-items:center;padding:9px 15px;border-top:1px solid rgba(39,51,79,.5);cursor:pointer;transition:.12s}
+.trow:hover{background:rgba(46,190,107,.06)}
+.trow .fl{font-size:19px}
+.trow .nm{font-weight:600;font-size:14.5px}
+.trow .st{font-size:12px;color:var(--muted)}
+.trow .pw{font-family:'JetBrains Mono';font-size:12px;color:var(--pitch);text-align:right}
+.trow .rt{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);text-align:right}
+.tnote{display:none;padding:0 15px 12px 53px;color:var(--muted);font-size:13px;border-top:1px dashed rgba(39,51,79,.5)}
+.tnote.open{display:block;padding-top:9px}
+.tnote .badges{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.tnote .badges span{font-family:'JetBrains Mono';font-size:10px;border:1px solid var(--line);border-radius:3px;padding:2px 7px;color:var(--chalk)}
+
+/* ---------- schedule ---------- */
+.fixgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:13px;margin-bottom:34px}
+.fix{border:1px solid var(--line);border-left:3px solid var(--pitch);border-radius:6px;background:var(--night-2);padding:13px 15px}
+.fix.final{border-left-color:var(--gold);background:linear-gradient(135deg,rgba(232,184,75,.12),var(--night-2))}
+.fix .d{font-family:'JetBrains Mono';font-size:11px;color:var(--gold);letter-spacing:.1em}
+.fix .m{font-family:'Barlow Condensed';font-weight:700;font-size:20px;margin:3px 0 2px}
+.fix .v{font-size:12.5px;color:var(--muted)}
+.ko-line{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--night-2)}
+.ko{flex:1;min-width:150px;padding:16px 14px;border-right:1px solid var(--line)}
+.ko:last-child{border-right:none}
+.ko .s{font-family:'Barlow Condensed';font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.05em}
+.ko .dt{font-family:'JetBrains Mono';font-size:11px;color:var(--led);margin-top:3px}
+.windowtbl{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
+.windowtbl div{border:1px solid var(--line);border-radius:5px;padding:9px 11px;background:var(--night-2);font-family:'JetBrains Mono';font-size:11px;color:var(--muted)}
+.windowtbl b{color:var(--chalk);font-size:13px;display:block;font-family:'Barlow Condensed';letter-spacing:.05em}
+
+/* ---------- methodology ---------- */
+.method{max-width:780px}
+.method p{margin-bottom:14px;color:#C4CCDC}
+.method code{font-family:'JetBrains Mono';font-size:12.5px;background:var(--night-2);border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--led)}
+.method pre{background:var(--night-2);border:1px solid var(--line);border-radius:8px;padding:16px;overflow-x:auto;font-family:'JetBrains Mono';font-size:12.5px;color:#C4CCDC;margin:14px 0}
+.method a{color:var(--gold)}
+
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:12.5px;font-family:'JetBrains Mono'}
+
+@media(max-width:680px){
+  .board-head,.row{grid-template-columns:34px 1fr 70px 70px}
+  .board-head span:nth-child(5),.board-head span:nth-child(6),
+  .row .hide-m{display:none}
+  .barwrap{padding-left:62px}
+}
+@media(prefers-reduced-motion:reduce){
+  .bar i{transition:none} section.on{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">United States · Mexico · Canada — Jun 11 → Jul 19, 2026</div>
+  <h1>World Cup <span class="tri">2026</span><br>Odds Board</h1>
+  <p class="sub">All <b>48 teams</b>, <b>12 groups</b> and <b>104 matches</b> — with championship odds from a
+  <b id="simcount">100,000</b>-run Monte Carlo simulation of the full tournament (Elo + Poisson model, hosted-nation
+  home advantage, FIFA 2026 tiebreakers, best-8 third-place qualification).</p>
+  <div class="hoststrip">
+    <span>🏆 FINAL <b>Jul 19 · New York/New Jersey</b></span>
+    <span>⚽ OPENER <b>Jun 11 · Mexico v South Africa, Estadio Azteca</b></span>
+    <span>📊 MODEL <b>simulate.py — open source</b></span>
+  </div>
+</header>
+
+<nav role="tablist">
+  <button class="on" data-tab="odds">Title Odds</button>
+  <button data-tab="groups">Groups & Teams</button>
+  <button data-tab="schedule">Schedule</button>
+  <button data-tab="method">Model</button>
+</nav>
+
+<section id="odds" class="on">
+  <h2>Championship probability — all 48</h2>
+  <p class="lede">Fair betting prices implied by the simulation (no bookmaker margin). Bars show win probability; columns show fair decimal & American odds and odds of reaching the semifinals.</p>
+  <div class="board">
+    <div class="board-head"><span>#</span><span>Team</span><span style="text-align:right">Win %</span><span style="text-align:right">Decimal</span><span style="text-align:right">American</span><span style="text-align:right">SF %</span></div>
+    <div id="oddsRows"></div>
+  </div>
+  <p class="odds-note">FAIR ODDS = 1 / PROBABILITY. A SPORTSBOOK ADDS MARGIN, SO REAL PRICES WILL BE SHORTER. NOT BETTING ADVICE.</p>
+</section>
+
+<section id="groups">
+  <h2>The 12 groups</h2>
+  <p class="lede">Tap any team for its profile — marquee player, model rating, win-group odds and storyline. Top two from each group advance, plus the eight best third-place teams.</p>
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="Search 48 teams… (e.g. Norway, Haaland, CONCACAF)" aria-label="Search teams">
+    <select id="conf" aria-label="Filter by confederation">
+      <option value="">All confederations</option>
+      <option>UEFA</option><option>CONMEBOL</option><option>CONCACAF</option>
+      <option>CAF</option><option>AFC</option><option>OFC</option>
+    </select>
+  </div>
+  <div class="groups" id="groupGrid"></div>
+</section>
+
+<section id="schedule">
+  <h2>Key dates & marquee fixtures</h2>
+  <p class="lede">Confirmed headline matches of the group stage, the knockout calendar, and each group's playing window.</p>
+  <div class="fixgrid" id="fixGrid"></div>
+  <h2 style="font-size:24px">Knockout calendar</h2>
+  <div class="ko-line" id="koLine"></div>
+  <div class="windowtbl" id="windows"></div>
+</section>
+
+<section id="method">
+  <h2>How the odds are made</h2>
+  <div class="method">
+    <p>Every number on this board comes from <code>simulate.py</code>, a Monte Carlo engine that plays the entire
+    2026 tournament <b id="simcount2">100,000</b> times — the same headline number Nate Silver's
+    <a href="https://www.natesilver.net/p/world-cup-2026-odds-predictions" target="_blank" rel="noopener">PELE model</a> uses.</p>
+    <p><b>1 · Ratings.</b> Each team carries an Elo-style rating (a static pre-tournament snapshot, editable in
+    <code>data/teams.json</code>). Hosts get a home-advantage bonus — Mexico's is the largest, reflecting the
+    Azteca's altitude, with a smaller edge for the US and Canada and a reduced bonus in knockouts.</p>
+    <p><b>2 · Matches.</b> The Elo gap sets each side's expected goals, and scorelines are drawn from independent
+    Poisson distributions:</p>
+    <pre>μ_A = 1.30 · exp(+0.0045 · ΔElo / 2)
+μ_B = 1.30 · exp(−0.0045 · ΔElo / 2)
+goals ~ Poisson(μ)</pre>
+    <p><b>3 · Format.</b> All 72 group games are simulated with FIFA's 2026 tiebreakers (points → head-to-head →
+    goal difference → goals scored), the eight best third-place teams join the 24 group winners and runners-up,
+    and a 32-team single-elimination bracket plays out to the final. Drawn knockout games go to extra time and
+    penalties, modeled with a dampened Elo edge.</p>
+    <p><b>4 · Odds.</b> Counting how often each team lifts the trophy across all runs gives a probability, and
+    fair odds are simply its inverse (decimal = 1/p). One honest simplification: the real third-place bracket
+    allocation depends on <i>which</i> 8 groups produce qualifying thirds (495 combinations), so qualifying thirds
+    are assigned to bracket slots randomly each run.</p>
+    <p><b>Run it yourself:</b></p>
+    <pre>pip install numpy
+python simulate.py -n 100000        # full PELE-scale run (~1 min)
+python simulate.py -n 20000 --seed 7 -o output/odds.json</pre>
+    <p>No API keys required. To go further: live Elo from <a href="https://eloratings.net" target="_blank" rel="noopener">eloratings.net</a> (free, no key),
+    fixtures & squads from <a href="https://www.football-data.org" target="_blank" rel="noopener">football-data.org</a> (free key) or API-Football,
+    and real market prices from <a href="https://the-odds-api.com" target="_blank" rel="noopener">The Odds API</a> (free key) to compare against the model.</p>
+  </div>
+</section>
+
+<footer>
+  WC26 ODDS BOARD · MODEL OUTPUT, NOT BETTING ADVICE · DATA SNAPSHOT JUN 11 2026 · BUILT WITH SIMULATE.PY (MIT)
+</footer>
+</div>
+
+<script id="DATA" type="application/json">__DATA_PLACEHOLDER__</script>
+<script>
+const DATA = JSON.parse(document.getElementById('DATA').textContent);
+const T = DATA.teams, O = DATA.odds;
+document.querySelectorAll('#simcount,#simcount2').forEach(e=>e.textContent=DATA.sims.toLocaleString());
+
+/* tabs */
+const tabs=document.querySelectorAll('nav button'),secs=document.querySelectorAll('section');
+tabs.forEach(b=>b.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.toggle('on',x===b));
+  secs.forEach(s=>s.classList.toggle('on',s.id===b.dataset.tab));
+  if(b.dataset.tab==='odds')animateBars();
+}));
+
+/* odds board */
+const sorted=Object.entries(O).sort((a,b)=>b[1].p_champion-a[1].p_champion);
+const maxP=sorted[0][1].p_champion;
+const rowsEl=document.getElementById('oddsRows');
+rowsEl.innerHTML=sorted.map(([name,o],i)=>{
+  const t=T[name],pct=(o.p_champion*100);
+  return `<div class="row" title="${name}: reaches R32 ${(o.p_reach_r32*100).toFixed(0)}%, QF ${(o.p_reach_qf*100).toFixed(1)}%, Final ${(o.p_reach_final*100).toFixed(1)}%">
+    <span class="rk">${String(i+1).padStart(2,'0')}</span>
+    <span class="tm"><span class="fl">${t.flag}</span><span class="nm">${name}</span><span class="gp">GRP ${o.group}</span></span>
+    <span class="num win">${pct<0.05?'<0.1':pct.toFixed(1)}%</span>
+    <span class="num">${o.fair_odds.decimal??'—'}</span>
+    <span class="num hide-m">${o.fair_odds.american??'—'}</span>
+    <span class="num dim hide-m">${(o.p_reach_sf*100).toFixed(1)}%</span>
+  </div>
+  <div class="barwrap"><div class="bar"><i data-w="${(o.p_champion/maxP*100).toFixed(1)}"></i></div></div>`;
+}).join('');
+function animateBars(){requestAnimationFrame(()=>document.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%'));}
+animateBars();
+
+/* groups */
+const grid=document.getElementById('groupGrid');
+function renderGroups(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  const cf=document.getElementById('conf').value;
+  grid.innerHTML=Object.entries(DATA.groups).map(([L,members])=>{
+    const rows=members.filter(n=>{
+      const t=T[n];
+      const hay=(n+' '+t.star+' '+t.confed+' '+t.fifa_code).toLowerCase();
+      return (!q||hay.includes(q))&&(!cf||t.confed===cf);
+    });
+    if(!rows.length)return '';
+    return `<div class="gcard"><h3>Group ${L}<small>${DATA.windows[L]}</small></h3>`+
+      rows.map(n=>{const t=T[n],o=O[n];return `
+      <div class="trow" data-team="${n}" role="button" tabindex="0" aria-expanded="false">
+        <span class="fl">${t.flag}</span>
+        <span><span class="nm">${n}</span><br><span class="st">★ ${t.star}</span></span>
+        <span class="rt">ELO ${t.rating}</span>
+        <span class="pw">${(o.p_win_group*100).toFixed(0)}% 1st</span>
+      </div>
+      <div class="tnote" id="note-${t.fifa_code}">${t.note}
+        <div class="badges"><span>${t.confed}</span><span>WIN CUP ${(o.p_champion*100).toFixed(o.p_champion<0.001?2:1)}%</span><span>REACH KO ${(o.p_reach_r32*100).toFixed(0)}%</span><span>FAIR ${o.fair_odds.decimal??'—'}</span>${t.host?'<span style="color:var(--gold)">CO-HOST</span>':''}</div>
+      </div>`;}).join('')+`</div>`;
+  }).join('');
+}
+renderGroups();
+grid.addEventListener('click',e=>{const r=e.target.closest('.trow');if(r)toggleNote(r);});
+grid.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const r=e.target.closest('.trow');if(r){e.preventDefault();toggleNote(r);}}});
+function toggleNote(r){const n=r.nextElementSibling;const open=n.classList.toggle('open');r.setAttribute('aria-expanded',open);}
+document.getElementById('q').addEventListener('input',renderGroups);
+document.getElementById('conf').addEventListener('change',renderGroups);
+
+/* schedule */
+document.getElementById('fixGrid').innerHTML=DATA.fixtures.map(f=>`
+  <div class="fix ${f.stage.includes('Final')?'final':''}">
+    <div class="d">${f.date.toUpperCase()} · ${f.stage.toUpperCase()}</div>
+    <div class="m">${f.match}</div><div class="v">${f.venue}</div>
+  </div>`).join('');
+document.getElementById('koLine').innerHTML=Object.entries(DATA.ko).map(([s,d])=>`
+  <div class="ko"><div class="s">${s}</div><div class="dt">${d}</div></div>`).join('');
+document.getElementById('windows').innerHTML=Object.entries(DATA.windows).map(([L,w])=>`
+  <div><b>GROUP ${L}</b>${w}</div>`).join('');
+</script>
+</body>
+</html>

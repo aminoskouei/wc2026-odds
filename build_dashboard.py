@@ -2,8 +2,8 @@
 """Inject teams data + latest simulation odds into the dashboard.
 
 Usage:  python build_dashboard.py
-Reads:  data/teams.json, output/odds.json, dashboard_template.html
-Writes: dashboard.html  (single self-contained file — GitHub Pages ready)
+Reads:  teams.json, odds.json, dashboard_template.html
+Writes: index.html  (single self-contained file — GitHub Pages ready)
 """
 import json
 from pathlib import Path
@@ -23,6 +23,6 @@ payload = {
 
 tpl = Path("dashboard_template.html").read_text()
 blob = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
-Path("dashboard.html").write_text(tpl.replace("__DATA_PLACEHOLDER__", blob))
-print(f"dashboard.html built ({len(blob):,} bytes of data, "
+Path("index.html").write_text(tpl.replace("__DATA_PLACEHOLDER__", blob))
+print(f"index.html built ({len(blob):,} bytes of data, "
       f"{payload['sims']:,} sims)")
