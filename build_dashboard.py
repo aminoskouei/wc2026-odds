@@ -8,8 +8,8 @@ Writes: dashboard.html  (single self-contained file — GitHub Pages ready)
 import json
 from pathlib import Path
 
-teams = json.load(open("data/teams.json"))
-odds = json.load(open("output/odds.json"))
+teams = json.load(open("teams.json"))
+odds = json.load(open("odds.json"))
 
 payload = {
     "sims": odds["meta"]["simulations"],
